@@ -1,4 +1,4 @@
-"""P-MCP Simulator package."""
+"""PCP Simulator package."""
 from .world import WarehouseWorld, Vec2, AABB, Obstacle, Waypoint
 from .robot import SimRobot, RobotClass, RobotState
 from .warehouse_scenario import WarehouseScenario

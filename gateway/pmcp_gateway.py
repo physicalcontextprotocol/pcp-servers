@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-P-MCP mTLS Gateway
+PCP mTLS Gateway
 ==================
 
 A security gateway that implements:
@@ -10,7 +10,7 @@ A security gateway that implements:
 - Certificate lifecycle management
 - Access control based on robot identity
 
-This gateway sits between clients and P-MCP servers,
+This gateway sits between clients and PCP servers,
 providing:
 - Authentication: Verify robot identity via certificates
 - Authorization: Enforce access policies
@@ -116,7 +116,7 @@ class Certificate:
 
 
 class CertificateAuthority:
-    """Certificate Authority for P-MCP certificates."""
+    """Certificate Authority for PCP certificates."""
     
     def __init__(self, ca_key_path: str, ca_cert_path: str):
         self.ca_key_path = ca_key_path
@@ -155,8 +155,8 @@ class CertificateAuthority:
             subject = issuer = x509.Name([
                 x509.NameAttribute(x509.oid.NameAttribute.COUNTRY_NAME, "US"),
                 x509.NameAttribute(x509.oid.NameAttribute.STATE_OR_PROVINCE_NAME, "California"),
-                x509.NameAttribute(x509.oid.NameAttribute.ORGANIZATION_NAME, "P-MCP Foundation"),
-                x509.NameAttribute(x509.oid.NameAttribute.COMMON_NAME, "P-MCP Root CA"),
+                x509.NameAttribute(x509.oid.NameAttribute.ORGANIZATION_NAME, "PCP Foundation"),
+                x509.NameAttribute(x509.oid.NameAttribute.COMMON_NAME, "PCP Root CA"),
             ])
             
             now = datetime.utcnow()
@@ -629,7 +629,7 @@ class GatewayConfig:
 
 
 class Gateway:
-    """P-MCP mTLS Gateway."""
+    """PCP mTLS Gateway."""
     
     def __init__(self, config: GatewayConfig):
         self.config = config
@@ -646,7 +646,7 @@ class Gateway:
         self._request_log: List[RequestContext] = []
         self._lock = threading.RLock()
         
-        logger.info("P-MCP Gateway initialized")
+        logger.info("PCP Gateway initialized")
     
     def register_robot(
         self,
@@ -761,7 +761,7 @@ class Gateway:
 # ============================================================================
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="P-MCP mTLS Gateway")
+    parser = argparse.ArgumentParser(description="PCP mTLS Gateway")
     
     # Server options
     parser.add_argument("--host", default="0.0.0.0", help="Host to bind to")
@@ -769,7 +769,7 @@ def parse_args():
     
     # Upstream
     parser.add_argument("--upstream", default="http://localhost:8080", 
-                       help="Upstream P-MCP server URL")
+                       help="Upstream PCP server URL")
     
     # TLS options
     parser.add_argument("--tls-cert", default="gateway.crt", help="TLS certificate")

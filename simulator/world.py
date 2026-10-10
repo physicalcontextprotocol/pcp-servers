@@ -1,5 +1,5 @@
 """
-P-MCP Fleet Simulator — World Model
+PCP Fleet Simulator — World Model
 =====================================
 Workspace geometry, obstacle maps, and the grid world used by the
 warehouse scenario. Coordinate system: Z-up, meters.

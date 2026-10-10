@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-P-MCP Black Swan Simulation
+PCP Black Swan Simulation
 ============================
 "What happens when the vision server dies mid-harvest?"
 
@@ -234,7 +234,7 @@ async def run_harvest_with_fault(hil_gate, slash_mgr, fault_at_step: int = 2):
 
 async def main():
     print("\n" + "=" * 60)
-    print("  P-MCP Black Swan Simulation")
+    print("  PCP Black Swan Simulation")
     print("  Vision Server Failure During Active Harvest Cycle")
     print("=" * 60)
 

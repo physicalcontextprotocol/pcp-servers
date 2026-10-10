@@ -1,13 +1,13 @@
 """
-P-MCP Reference Implementation — Smart Factory Cell
+PCP Reference Implementation — Smart Factory Cell
 =====================================================
-Shows P-MCP used in a 4-robot manufacturing cell:
+Shows PCP used in a 4-robot manufacturing cell:
   - UR5 arm: picks raw parts from feeder belt
   - Franka Panda: precision assembly operation
   - TurtleBot3: transports finished assemblies to QA station
   - Vision robot: QA inspection via camera sensor
 
-The cell controller coordinates all four robots using the P-MCP fleet client.
+The cell controller coordinates all four robots using the PCP fleet client.
 """
 from __future__ import annotations
 
@@ -49,7 +49,7 @@ class MockFactoryRobot:
 
 class FactoryCellServer:
     """
-    P-MCP server for a factory robot — handles all four roles with
+    PCP server for a factory robot — handles all four roles with
     role-specific actuation/sensor dispatch.
     """
 

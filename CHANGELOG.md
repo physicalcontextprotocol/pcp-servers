@@ -1,4 +1,4 @@
-# Changelog — pmcp-servers
+# Changelog — pcp-servers
 
 All notable changes to the reference and example robot servers. The
 format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
@@ -17,21 +17,21 @@ First tagged public release.
   `gateway/` is called out specifically, along with its
   `"mock_ca_key"` fallback.
 - `CONTRIBUTING.md` documenting the `PYTHONPATH` requirement and
-  listing the five examples that cannot run without `pmcp-labs` access.
+  listing the five examples that cannot run without `pcp-labs` access.
 
 ### Known limitations (documented, not fixed)
 
 - **Not self-contained.** Servers and most examples hard-import
   `from v05.*`, so this repository does not run as a standalone
-  install. `pmcp-python` must be installed alongside it.
+  install. `pcp-python` must be installed alongside it.
 - **Five examples are unrunnable for most contributors** because they
-  import `pmcp_grand_unified`, which lives in the private `pmcp-labs`
+  import `pmcp_grand_unified`, which lives in the private `pcp-labs`
   quarantine: `example_black_swan.py`, `example_multi_robot.py`,
   `example_harvest_cycle.py`, `example_safety_blocks.py`,
   `generate_examples.py`. Making these stop depending on that 161 KB
   file is the highest-value contribution available here.
-- **No test suite.** Verification happens in `pmcp-python/tests/` and
-  `pmcp-conformance/`.
+- **No test suite.** Verification happens in `pcp-python/tests/` and
+  `pcp-conformance/`.
 - **`gateway/` falls back to a literal `"mock_ca_key"` PEM string**
   when the `cryptography` extra is missing — a security control that
   quietly stops existing rather than refusing to start.
@@ -43,6 +43,6 @@ First tagged public release.
 
 ## [0.5.0]
 
-Servers established against `pmcp-python/v05/`: arm, mobile, and
+Servers established against `pcp-python/v05/`: arm, mobile, and
 agricultural reference servers; hospital and smart-factory reference
 implementations; the world/robot simulator; and the protocol gateway.

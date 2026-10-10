@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-P-MCP Hello Robot Tutorial
+PCP Hello Robot Tutorial
 ==========================
 
 A 5-minute tutorial demonstrating how to connect Claude Desktop to a simulated TurtleBot.
 
-This example creates a P-MCP server for a mobile robot (TurtleBot) and shows how to:
+This example creates a PCP server for a mobile robot (TurtleBot) and shows how to:
 1. Define robot actuations (movement commands)
 2. Expose sensors as MCP resources
 3. Run the server in stdio mode (compatible with Claude Desktop)
@@ -92,7 +92,7 @@ robot = SimulatedTurtleBot()
 
 
 def create_turtlebot_server() -> PMCPServer:
-    """Create a P-MCP server for TurtleBot."""
+    """Create a PCP server for TurtleBot."""
 
     server = PMCPServer(
         name="turtlebot-demo",
@@ -288,7 +288,7 @@ def create_turtlebot_server() -> PMCPServer:
 async def test_server():
     """Test the server programmatically."""
     print("=" * 60)
-    print("P-MCP Hello Robot Tutorial - Test Mode")
+    print("PCP Hello Robot Tutorial - Test Mode")
     print("=" * 60)
 
     server = create_turtlebot_server()
@@ -351,15 +351,15 @@ async def test_server():
 
 async def run_server():
     """Run the server in stdio mode (for Claude Desktop)."""
-    print("[P-MCP] TurtleBot Demo Server v0.5 ready")
-    print("[P-MCP] Connect Claude Desktop to control this robot")
+    print("[PCP] TurtleBot Demo Server v0.5 ready")
+    print("[PCP] Connect Claude Desktop to control this robot")
 
     server = create_turtlebot_server()
     await server.run()
 
 
 def main():
-    parser = argparse.ArgumentParser(description="P-MCP Hello Robot Tutorial")
+    parser = argparse.ArgumentParser(description="PCP Hello Robot Tutorial")
     parser.add_argument(
         "--test",
         action="store_true",

@@ -1,5 +1,5 @@
 """
-P-MCP Gateway — mTLS-secured Reverse Proxy
+PCP Gateway — mTLS-secured Reverse Proxy
 ============================================
 Authenticates inbound JSON-RPC requests, verifies Ed25519 or JWT bearer
 tokens, applies rate-limiting, then forwards to robot servers.
@@ -355,7 +355,7 @@ async def create_gateway_app(config: GatewayConfig) -> web.Application:
 async def main() -> None:
     import argparse
 
-    parser = argparse.ArgumentParser(description="P-MCP Gateway")
+    parser = argparse.ArgumentParser(description="PCP Gateway")
     parser.add_argument("--port", type=int, default=8443)
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--upstream", action="append", dest="upstreams")
@@ -396,7 +396,7 @@ async def main() -> None:
     await runner.setup()
     site = web.TCPSite(runner, config.host, config.port, ssl_context=ssl_ctx)
     await site.start()
-    log.info("P-MCP Gateway running on %s:%d (TLS=%s, mTLS=%s)",
+    log.info("PCP Gateway running on %s:%d (TLS=%s, mTLS=%s)",
              config.host, config.port, bool(ssl_ctx), config.require_mtls)
     await asyncio.Event().wait()
 

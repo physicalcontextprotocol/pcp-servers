@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-P-MCP ROS2 Parameter Server
+PCP ROS2 Parameter Server
 ===========================
 
 Manages ROS2 parameters for robots.

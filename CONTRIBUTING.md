@@ -1,4 +1,4 @@
-# Contributing to pmcp-servers
+# Contributing to pcp-servers
 
 Reference and example robot servers. Everything here is **illustrative** —
 no real hardware driver ships in this repository.
@@ -13,13 +13,13 @@ These files hard-import from `v05.*`, so this repository does not run
 standalone:
 
 ```bash
-pip install -e ../pmcp-python
-export PYTHONPATH="$PWD/../pmcp-python:$PWD"
+pip install -e ../pcp-python
+export PYTHONPATH="$PWD/../pcp-python:$PWD"
 python robot_servers/arm_server.py --help
 ```
 
 Some files under `examples/` also import `pmcp_grand_unified`, which
-still lives in the private `pmcp-labs` quarantine repository. Those
+still lives in the private `pcp-labs` quarantine repository. Those
 examples will not run for contributors without labs access:
 `example_black_swan.py`, `example_multi_robot.py`,
 `example_harvest_cycle.py`, `example_safety_blocks.py`,

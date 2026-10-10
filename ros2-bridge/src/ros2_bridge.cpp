@@ -1,4 +1,4 @@
-// P-MCP ROS2 Bridge - C++ Core Implementation
+// PCP ROS2 Bridge - C++ Core Implementation
 
 #include <iostream>
 #include <memory>
@@ -153,7 +153,7 @@ public:
 
     void start() {
         running_ = true;
-        std::cout << "P-MCP ROS2 Bridge started" << std::endl;
+        std::cout << "PCP ROS2 Bridge started" << std::endl;
         worker_thread_ = std::thread([this]() { workerLoop(); });
     }
 
@@ -162,7 +162,7 @@ public:
         if (worker_thread_.joinable()) {
             worker_thread_.join();
         }
-        std::cout << "P-MCP ROS2 Bridge stopped" << std::endl;
+        std::cout << "PCP ROS2 Bridge stopped" << std::endl;
     }
 
     std::vector<TopicInfo> getTopics() { return topic_bridge_->listTopics(); }
@@ -214,7 +214,7 @@ int main(int argc, char** argv) {
     auto bridge = std::make_shared<pmcp_ros2_bridge::ROS2Bridge>();
     bridge->start();
 
-    std::cout << "P-MCP ROS2 Bridge running..." << std::endl;
+    std::cout << "PCP ROS2 Bridge running..." << std::endl;
 
     std::this_thread::sleep_for(std::chrono::seconds(5));
 

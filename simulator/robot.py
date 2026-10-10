@@ -1,7 +1,7 @@
 """
-P-MCP Fleet Simulator — Simulated Robot Agent
+PCP Fleet Simulator — Simulated Robot Agent
 ===============================================
-Each SimRobot exposes a minimal P-MCP HTTP server so real PMCPClients
+Each SimRobot exposes a minimal PCP HTTP server so real PMCPClients
 can connect to it during integration tests and demos.
 """
 from __future__ import annotations
@@ -170,7 +170,7 @@ class SimRobot:
             "quality": 1.0 if not self.estop_active else 0.5,
         }
 
-    # ── P-MCP HTTP Server ───────────────────────────────────────────────────
+    # ── PCP HTTP Server ───────────────────────────────────────────────────
 
     def _pmcp_response(self, result: Any, req_id: Any) -> Dict:
         return {"jsonrpc": "2.0", "result": result, "id": req_id}

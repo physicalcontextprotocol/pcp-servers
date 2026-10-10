@@ -1,1 +1,1 @@
-"""P-MCP Reference Implementations package."""
+"""PCP Reference Implementations package."""

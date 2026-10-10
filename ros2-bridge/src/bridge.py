@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-P-MCP ROS2 Bridge
+PCP ROS2 Bridge
 ==================
 
 Bridge that exposes ROS2 topics, services, and actions as MCP resources and tools.
@@ -316,7 +316,7 @@ class ROS2MCPServer:
         site = web.TCPSite(runner, "0.0.0.0", port)
         await site.start()
 
-        logger.info(f"P-MCP ROS2 Bridge starting on port {port}")
+        logger.info(f"PCP ROS2 Bridge starting on port {port}")
 
         try:
             await asyncio.Event().wait()
@@ -522,7 +522,7 @@ class ROS2MCPServer:
 
 
 async def main():
-    parser = argparse.ArgumentParser(description="P-MCP ROS2 Bridge")
+    parser = argparse.ArgumentParser(description="PCP ROS2 Bridge")
     parser.add_argument("--port", type=int, default=8084, help="Server port")
     parser.add_argument("--ros-domain", type=int, default=0, help="ROS2 domain ID")
     parser.add_argument("--transport", default="sse", choices=["stdio", "sse"], help="Transport type")

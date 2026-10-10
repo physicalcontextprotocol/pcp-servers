@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-P-MCP Fleet Simulator
+PCP Fleet Simulator
 ===================
 
 A warehouse simulation with 50 robots demonstrating:
@@ -714,7 +714,7 @@ class FleetVisualizer:
         # Build output
         lines = []
         lines.append("=" * width)
-        lines.append("P-MCP Fleet Simulator - Warehouse View")
+        lines.append("PCP Fleet Simulator - Warehouse View")
         lines.append("=" * width)
         
         # Add grid
@@ -804,7 +804,7 @@ async def run_test():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="P-MCP Fleet Simulator")
+    parser = argparse.ArgumentParser(description="PCP Fleet Simulator")
     parser.add_argument("--robots", type=int, default=50, 
                        help="Number of robots")
     parser.add_argument("--visualize", action="store_true",

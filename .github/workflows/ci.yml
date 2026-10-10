@@ -1,10 +1,10 @@
-name: pmcp-servers CI
+name: pcp-servers CI
 
 # Minimal by design. Everything in this repository is illustrative, and
-# most of it hard-imports `v05.*` from `pmcp-python`, so a real
+# most of it hard-imports `v05.*` from `pcp-python`, so a real
 # "does it run" job would need the SDK installed as a dependency.
 # That dependency is real — this repository genuinely does require
-# `pmcp-python` — so it is installed here, and the smoke test below is
+# `pcp-python` — so it is installed here, and the smoke test below is
 # the one thing worth asserting: that the documented
 # `PYTHONPATH` recipe in the README actually works.
 
@@ -37,26 +37,26 @@ jobs:
         # The README documents running these servers from a local
         # checkout of both repositories:
         #
-        #   pip install -e pmcp-python
-        #   export PYTHONPATH="$PWD/pmcp-python:$PWD/pmcp-servers"
+        #   pip install -e pcp-python
+        #   export PYTHONPATH="$PWD/pcp-python:$PWD/pcp-servers"
         #
         # so that is what this job tests. An earlier version installed
         # pmcp from its git URL instead, which cannot work while
-        # pmcp-python is private -- the clone fails with "could not read
+        # pcp-python is private -- the clone fails with "could not read
         # Username for 'https://github.com'" -- and which also tested a
         # recipe the README does not document. Fetching the sibling
         # repository, pinned to its main branch, is the closest
         # equivalent that CI can actually perform.
         uses: actions/checkout@v4
         with:
-          repository: physicalcontextprotocol/pmcp-python
-          path: pmcp-python
+          repository: physicalcontextprotocol/pcp-python
+          path: pcp-python
           ref: main
 
       - name: Install the SDK, as the README documents
         run: |
           python -m pip install --upgrade pip
-          pip install -e pmcp-python
+          pip install -e pcp-python
           # The distribution name changed: the SDK was renamed from `pcp`
           # to `physicalcontextprotocol` (the PyPI `pcp` name was already
           # taken), while the import packages stay `pcp` and `v05`. The old
@@ -64,11 +64,11 @@ jobs:
           # never published under since the rename, so it failed on a
           # successful install.
           pip show physicalcontextprotocol | grep -q "Name: physicalcontextprotocol" \
-            || { echo "::error::could not install pmcp-python"; exit 1; }
+            || { echo "::error::could not install pcp-python"; exit 1; }
 
       - name: Confirm the documented PYTHONPATH recipe works
         run: |
-          export PYTHONPATH="$GITHUB_WORKSPACE/pmcp-python:$GITHUB_WORKSPACE:$PYTHONPATH"
+          export PYTHONPATH="$GITHUB_WORKSPACE/pcp-python:$GITHUB_WORKSPACE:$PYTHONPATH"
           python -c "import v05; print('v05 importable, so the README recipe holds')"
 
       - name: Confirm the reference servers parse
@@ -84,7 +84,7 @@ jobs:
     steps:
       - name: Report status
         run: |
-          echo "## pmcp-servers CI Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "## pcp-servers CI Summary" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "| Job | Result |" >> "$GITHUB_STEP_SUMMARY"
           echo "|-----|--------|" >> "$GITHUB_STEP_SUMMARY"

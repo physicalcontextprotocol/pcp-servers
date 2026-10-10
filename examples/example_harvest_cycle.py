@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Minimal P-MCP harvest cycle — shows the full invoke→shadow→confirm loop."""
+"""Minimal PCP harvest cycle — shows the full invoke→shadow→confirm loop."""
 
 import asyncio, sys, logging
 sys.path.insert(0, "..")  # or wherever pmcp_grand_unified.py lives

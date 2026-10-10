@@ -1,8 +1,8 @@
 """
-P-MCP Fleet Simulator — 50-Robot Warehouse Scenario
+PCP Fleet Simulator — 50-Robot Warehouse Scenario
 =====================================================
 Launches 50 simulated AMRs in a warehouse world, registers them with the
-P-MCP registry, and runs a mission loop dispatching pick-and-place tasks.
+PCP registry, and runs a mission loop dispatching pick-and-place tasks.
 
 Usage:
     python -m simulator.warehouse_scenario --robots 50 --registry http://localhost:8888
@@ -173,7 +173,7 @@ async def main() -> None:
     import argparse
     logging.basicConfig(level=logging.INFO, format="[%(asctime)s] %(levelname)s — %(message)s")
 
-    parser = argparse.ArgumentParser(description="P-MCP Warehouse Simulator")
+    parser = argparse.ArgumentParser(description="PCP Warehouse Simulator")
     parser.add_argument("--robots", type=int, default=50)
     parser.add_argument("--registry", default="http://localhost:8888")
     args = parser.parse_args()

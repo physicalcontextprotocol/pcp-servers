@@ -1,10 +1,10 @@
 """
-P-MCP Reference Implementation — Hospital Ward Medication Delivery Robot
+PCP Reference Implementation — Hospital Ward Medication Delivery Robot
 =========================================================================
 Complete end-to-end implementation showing:
 
-  - A P-MCP server exposing navigation, tray-lift and RFID sensors
-  - A P-MCP client (care coordinator) that dispatches delivery tasks
+  - A PCP server exposing navigation, tray-lift and RFID sensors
+  - A PCP client (care coordinator) that dispatches delivery tasks
   - Safety interlocks: human occupancy detection via camera sensor
   - DePIN reward registration for successful deliveries
   - Multisig gate for medication cabinet unlock actuations
@@ -69,11 +69,11 @@ class MockHospitalRobot:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-#  P-MCP Server (Hospital Robot)
+#  PCP Server (Hospital Robot)
 # ─────────────────────────────────────────────────────────────────────────────
 
 class HospitalRobotServer:
-    """Implements the P-MCP server protocol for the hospital delivery robot."""
+    """Implements the PCP server protocol for the hospital delivery robot."""
 
     ACTUATIONS = ["navigate_to", "lift_tray", "lower_tray", "engage_estop", "release_estop"]
     SENSORS = ["rfid", "camera_occupancy", "battery", "position"]
@@ -211,7 +211,7 @@ class HospitalRobotServer:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-#  P-MCP Client (Care Coordinator)
+#  PCP Client (Care Coordinator)
 # ─────────────────────────────────────────────────────────────────────────────
 
 @dataclass
@@ -224,7 +224,7 @@ class DeliveryTask:
 
 
 class CareCoordinator:
-    """Orchestrates delivery tasks via the P-MCP client protocol."""
+    """Orchestrates delivery tasks via the PCP client protocol."""
 
     def __init__(self, robot_url: str = "http://127.0.0.1:8500") -> None:
         self._url = robot_url
